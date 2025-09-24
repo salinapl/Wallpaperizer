@@ -40,7 +40,7 @@ You can start chrome in "headless mode and take a screenshot, then close, specif
 `start chrome.exe --headless --screenshot="C:\output.png" --window-size=2500,1500 "http://path-to-your-kirby-page"`
 
 ### Via Firefox
-Just like chrome, you can start firefox in headless mode, take a screenshot, and close firefox. By default, firefox will not run if firefox is already open, so close the browser before running the command. Unlike chrome, firefox will correctly capture the page at the desired target resolution without needing to crop it afterward. Run the following in command prompt:
+Just like chrome, you can start firefox in headless mode, take a screenshot, and close firefox. By default, firefox will not run if firefox is already open, so close the browser before running the command. Unlike chrome, firefox will correctly capture the page at the desired target resolution without needing to crop it afterward, but it appears to be missing some CSS filter effects. Run the following in command prompt:
 
 `start firefox -headless -screenshot C:\Users\techsupport\Downloads\test.png -window-size 1920,1080 http://path-to-your-kirby-page`
 
