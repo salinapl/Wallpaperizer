@@ -1,0 +1,12 @@
+{
+    "name": "salinapl/wallpaperizer",
+    "description": "A Simple tool for creating icon grid aligned wallpapers.",
+    "version": "5.1.1-p1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Salina Public Library",
+            "email": "tech.lib@salinapublic.org"
+        }
+    ]
+}

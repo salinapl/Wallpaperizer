@@ -1,0 +1,108 @@
+title: Wallpaper
+columns:
+  content:
+    width: 2/3
+    fields:
+      wzentries:
+        label: Wallpaper Categories
+        type: structure
+        fields:
+          wzlabel:
+            label: label
+            type: text
+          wzcolumn:
+            label: Column Coord
+            type: text
+          wzrow:
+            label: row Coord
+            type: text
+          wzwidth:
+            label: width
+            type: text
+          wzheight:
+            label: height
+            type: text
+          wzcolor01:
+            label: Font Color
+            type: color
+            format: rgb
+            alpha: true
+            options: 
+              "#00bef2": "Cyan"
+              "#004d71": "Dark Blue"
+              "#ffc46c": "Tan"
+              "#2e2926": "Black"
+              "rgba(101, 102, 106, 0.8)": "Gray"
+              "#fafafa": "Light Gray"
+              "#dad5d2": "Inverted Light Gray"
+          wzcolor02:
+            label: Entry Color
+            type: color
+            format: rgb
+            alpha: true
+            options: 
+              "#00bef2": "Cyan"
+              "#004d71": "Dark Blue"
+              "#ffc46c": "Tan"
+              "#2e2926": "Black"
+              "rgba(101, 102, 106, 0.8)": "Gray"
+              "#fafafa": "Light Gray"
+              "#dad5d2": "Inverted Light Gray"
+          wzcolor03:
+            label: Entry Border Color
+            type: color
+            format: rgb
+            alpha: true
+            options: 
+              "#00bef2": "Cyan"
+              "#004d71": "Dark Blue"
+              "#ffc46c": "Tan"
+              "#2e2926": "Black"
+              "rgba(101, 102, 106, 0.8)": "Gray"
+              "#fafafa": "Light Gray"
+              "#dad5d2": "Inverted Light Gray"
+          wzcolor04:
+            label: Entry Shadow Color
+            type: color
+            format: rgb
+            alpha: true
+            options: 
+              "#00bef2": "Cyan"
+              "#004d71": "Dark Blue"
+              "#ffc46c": "Tan"
+              "#2e2926": "Black"
+              "rgba(101, 102, 106, 0.8)": "Gray"
+              "#fafafa": "Light Gray"
+              "#dad5d2": "Inverted Light Gray"
+  sidebar:
+    width: 1/3
+    fields:
+      wzdebug:
+        label: Page debug
+        type: toggle
+        help: Toggles Debug mode, makes entries translucent and shows the icon grid
+      wzaspect:
+        label: Aspect Ratio/Resolution
+        type: select
+        options:
+          r16101050: 1680x1050 (16:10)
+          r1691080: 1920x1080 (16:9)
+      wzbackground:
+        label: Page Background
+        type: files
+        query: page.images
+        multiple: false
+      wzlogo:
+        label: Page Logo
+        type: files
+        query: page.images
+        multiple: false
+  stylesheet:
+    width: 1/1
+    fields:
+      
+      wzstyle:
+        width: 1/1
+        label: Page CSS
+        type: text
+        size: medium

@@ -1,0 +1,159 @@
+:root{
+  /* base icon/padding values — change per preset */
+  --icon-size: 48px;
+  --pad-h: 28px;
+  --pad-v: 52px;
+
+  /* derived cell size */
+  --cell-w: calc(var(--icon-size) + var(--pad-h));
+  --cell-h: calc(var(--icon-size) + var(--pad-v));
+
+  /* grid origin offset (nudge if Windows uses a small margin) */
+  --offset-x: 0px;
+  --offset-y: 0px;
+
+  --color01: #00bef2;
+  --color02: rgba(101, 102, 106, 0.8);
+  --color03: #2e2926;
+  --color04: rgba(0,0,0,0.5);
+
+  /* visuals */
+  --guide-border: 7px solid var(--color03);
+}
+
+/* 16:10 preset helper */
+.r16101050 { 
+    --page-width: 1680px; 
+    --page-height: 1050px;
+    --label-size: 38px;
+    --icon-size: 48px;
+    --pad-h: 28px;
+    --pad-v: 52px;
+}
+.r1691080 {
+    --page-width: 1920px;
+    --page-height: 1080px;
+    --label-size: 38px;
+    --icon-size: 48px;
+    --pad-h: 28px;
+    --pad-v: 52px;
+}
+
+/* Preview container sized to target wallpaper resolution */
+.preview {
+  position: relative;
+  width: var(--page-width);
+  height: var(--page-height);
+  background: url("../img/wallpaper_1610.png") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* presets for icon/padding combos */
+.preset-medium-tight { --icon-size: 48px; --pad-h: 16px; --pad-v: 24px; }
+.preset-medium-spacious { --icon-size: 48px; --pad-h: 32px; --pad-v: 40px; }
+.preset-test {--icon-size:48px; --pad-h:22px; --pad-v: 52px; }
+
+/* GRID OVERLAY: uses CSS Grid */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  pointer-events: none;
+
+  /* grid cell size set by variables */
+  grid-auto-columns: var(--cell-w);
+  grid-auto-rows: var(--cell-h);
+
+  /* ensure grid origin offset: shift the grid with padding */
+  padding-left: var(--offset-x);
+  padding-top: var(--offset-y);
+
+
+}
+.grid-overlay-debug {
+    /* optional faint visual guide lines drawn underneath the boxes */
+    background-image:
+        repeating-linear-gradient(to right, rgba(255,255,255,0.5) 0 1px, transparent 1px calc(var(--cell-w))),
+        repeating-linear-gradient(to bottom, rgba(255,255,255,0.5) 0 1px, transparent 1px calc(var(--cell-h)));
+    background-size: var(--cell-w) var(--cell-h), var(--cell-w) var(--cell-h);
+    mix-blend-mode: overlay;
+}
+
+/* grid-box children are placed by grid-column/grid-row via custom properties */
+.grid-box {
+  box-sizing: border-box;
+  display: block;
+    position:relative;
+    z-index:1;
+
+  /* CSS variables set per element: --C, --R, --N, --M */
+  /* grid lines are 1-based; add 1 to C/R to compute start lines */
+  grid-column: calc(var(--C, 0) + 1) / span var(--N, 1);
+  grid-row: calc(var(--R, 0) + 1) / span var(--M, 1);
+}
+
+.box-debug {
+    border: 3px solid #fff;
+    border-radius: 6px;
+    opacity: 0.95;
+}
+.grid-box::before {
+  content: "";
+  position: absolute;
+  /* inset: calc(30px * -1);     /* expands outside the cell */
+  top: calc(50px * -1);
+  right: calc(30px * -1);
+  bottom: calc(30px * -1);
+  left: calc(30px * -1);
+  background: var(--color02);
+  border-left: var(--guide-border);
+  border-bottom: var(--guide-border);
+  border-radius: 35px;
+  filter: drop-shadow(-8px 8px 8px var(--color04));
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  z-index: -1; 
+}
+/* Real label element sits on top */
+.grid-box .wzlabel{
+    position: absolute;
+    overflow:visible;
+    white-space: nowrap;
+    z-index: 2;
+    left: 1px;
+    top: -45px;
+    right: 1px;
+    color: var(--color01);
+    text-align: center;
+    font-family: "Prompt", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: var(--label-size);
+    /*font-size: clamp(12px, 1.2vw, 18px);*/
+    line-height: 1.1;
+    display: inline-block;
+}
+/* optional small dot at each top-left origin using an overlay pseudo-element */
+.grid-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 0 0, rgba(255,255,255,0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 0 0, transparent 0 0);
+  background-repeat: repeat;
+  background-size: var(--cell-w) var(--cell-h);
+  background-position: var(--offset-x) var(--offset-y);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.page-logo {
+    background: url("../img/logo.png") no-repeat;
+    position: absolute;
+    display:block;
+    width: 300px;
+    height: 135px;
+    bottom: 80px;
+    right: 30px;
+    z-index:3;
+}

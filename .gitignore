@@ -1,0 +1,69 @@
+# System files
+# ------------
+
+Icon
+.DS_Store
+
+# Program files
+#--------------
+/kirby/*
+.htaccess
+site/blueprints/users
+site/blueprints/users/*
+site/blueprints/users/default.yml
+
+# Temporary files
+# ---------------
+
+/misc/*
+/media/*
+!/media/index.html
+
+# Placeholder files
+# ---------------
+
+#content/videogalleries/1_video-gallery-a/*
+
+# Lock files
+# ---------------
+
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+.editorconfig
+*.sublime-workspace
+/.vscode
+/.idea
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Cache Files
+# ---------------
+/site/cache
+/site/cache/*
+!/site/cache/index.html
+
+# Accounts
+# ---------------
+/site/accounts
+/site/accounts/*
+!/site/accounts/index.html
+
+# Sessions
+# ---------------
+/site/sessions
+/site/sessions/*
+!/site/sessions/index.html
+
+# License
+# ---------------
+
+/site/config/.license
+
+# Analytics
+#----------------
+site/snippets/analytics.php
