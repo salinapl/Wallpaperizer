@@ -1,5 +1,75 @@
 title: Wallpaper
 columns:
+  defaults:
+    width: 1/1
+    fields:
+      wzcolor1default:
+        width: 1/4
+        label: Default Font Color
+        required: true
+        type: color
+        format: rgb
+        alpha: true
+        options: 
+          type: query
+          query: kirby.option('salinapl.wallpaperizer.colors')
+      wzcolor2default:
+        width: 1/4
+        label: Default Entry Color
+        required: true
+        type: color
+        format: rgb
+        alpha: true
+        options: 
+          type: query
+          query: kirby.option('salinapl.wallpaperizer.colors')
+      wzcolor3default:
+        width: 1/4
+        label: Default Entry Border Color
+        required: true
+        type: color
+        format: rgb
+        alpha: true
+        options: 
+          type: query
+          query: kirby.option('salinapl.wallpaperizer.colors')
+      wzcolor4default:
+        width: 1/4
+        label: Default Entry Shadow Color
+        required: true
+        type: color
+        format: rgb
+        alpha: true
+        options: 
+          type: query
+          query: kirby.option('salinapl.wallpaperizer.colors')
+      wzdefaultradius:
+        width: 1/3
+        label: Default Entry Border Radius
+        required: true
+        type: range
+        step: 1
+        min: 0
+        tooltip:
+          after: px
+      wzdefaultborder:
+        width: 1/3
+        label: Default Entry Border size
+        required: true
+        type: range
+        step: 1
+        min: 0
+        tooltip:
+          after: px
+      wzdefaultblur:
+        width: 1/3
+        label: Default Entry BG blur
+        required: true
+        type: range
+        step: 1
+        min: 0
+        tooltip:
+          after: px
   content:
     width: 2/3
     fields:
@@ -28,52 +98,32 @@ columns:
             format: rgb
             alpha: true
             options: 
-              "#00bef2": "Cyan"
-              "#004d71": "Dark Blue"
-              "#ffc46c": "Tan"
-              "#2e2926": "Black"
-              "rgba(101, 102, 106, 0.8)": "Gray"
-              "#fafafa": "Light Gray"
-              "#dad5d2": "Inverted Light Gray"
+              type: query
+              query: kirby.option('salinapl.wallpaperizer.colors')
           wzcolor02:
             label: Entry Color
             type: color
             format: rgb
             alpha: true
             options: 
-              "#00bef2": "Cyan"
-              "#004d71": "Dark Blue"
-              "#ffc46c": "Tan"
-              "#2e2926": "Black"
-              "rgba(101, 102, 106, 0.8)": "Gray"
-              "#fafafa": "Light Gray"
-              "#dad5d2": "Inverted Light Gray"
+              type: query
+              query: kirby.option('salinapl.wallpaperizer.colors')
           wzcolor03:
             label: Entry Border Color
             type: color
             format: rgb
             alpha: true
-            options: 
-              "#00bef2": "Cyan"
-              "#004d71": "Dark Blue"
-              "#ffc46c": "Tan"
-              "#2e2926": "Black"
-              "rgba(101, 102, 106, 0.8)": "Gray"
-              "#fafafa": "Light Gray"
-              "#dad5d2": "Inverted Light Gray"
+            options:
+              type: query
+              query: kirby.option('salinapl.wallpaperizer.colors')
           wzcolor04:
             label: Entry Shadow Color
             type: color
             format: rgb
             alpha: true
             options: 
-              "#00bef2": "Cyan"
-              "#004d71": "Dark Blue"
-              "#ffc46c": "Tan"
-              "#2e2926": "Black"
-              "rgba(101, 102, 106, 0.8)": "Gray"
-              "#fafafa": "Light Gray"
-              "#dad5d2": "Inverted Light Gray"
+              type: query
+              query: kirby.option('salinapl.wallpaperizer.colors')
   sidebar:
     width: 1/3
     fields:
@@ -100,7 +150,26 @@ columns:
   stylesheet:
     width: 1/1
     fields:
-      
+      wzlogopostop:
+        width: 1/4
+        label: Logo Position top
+        type: number
+        after: px
+      wzlogoposright:
+        width: 1/4
+        label: Logo Position right
+        type: number
+        after: px
+      wzlogoposbottom:
+        width: 1/4
+        label: Logo Position bottom
+        type: number
+        after: px
+      wzlogoposleft:
+        width: 1/4
+        label: Logo Position left
+        type: number
+        after: px
       wzstyle:
         width: 1/1
         label: Page CSS
